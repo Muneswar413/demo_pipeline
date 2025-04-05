@@ -1,12 +1,13 @@
-import pandas as pd
-
 def lambda_handler(event, context):
-    data = {
-        'name': ['Nolan', 'Christopher'],
-        'movie': ['Inception', 'Interstellar']
-    }
+    name = event.get('name', 'krishna')
+    age = event.get('age', 35)
 
-    df = pd.DataFrame(data=data)
-    print(df)
+    message = f"Hello, my name is {name} and I am {age} years old!"
+    print(message)
+
+    return {
+        'statusCode': 200,
+        'body': message
+    }
 
     
